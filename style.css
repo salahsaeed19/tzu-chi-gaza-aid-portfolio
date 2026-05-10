@@ -1726,6 +1726,25 @@ mark {
   font-size: 0.9rem;
 }
 
+.footer-credit {
+  color: var(--muted);
+}
+
+.footer-credit a {
+  color: var(--mint);
+  font-weight: 800;
+  text-decoration: none;
+  transition: color 0.2s ease, text-decoration-color 0.2s ease;
+}
+
+.footer-credit a:hover,
+.footer-credit a:focus-visible {
+  color: var(--gold);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
 .back-to-top {
   position: fixed;
   inset-inline-end: 18px;
