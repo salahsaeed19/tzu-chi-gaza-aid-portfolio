@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="موقع محفظة إنسانية لمشروع توزيع المساعدات الغذائية في غزة - مارس 2026، مؤسسة تسجي الخيرية.">
+  <meta name="theme-color" content="#006F45">
+  <title>مؤسسة تسجي الخيرية | توزيع المساعدات الغذائية في غزة</title>
+  <link rel="icon" type="image/png" href="img/logo.png">
+  <link rel="apple-touch-icon" href="img/logo.png">
+  <script>
+    (function () {
+      try {
+        var savedTheme = localStorage.getItem("tsuchi-theme");
+        var systemTheme = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+        document.documentElement.setAttribute("data-theme", savedTheme || systemTheme);
+      } catch (error) {
+        document.documentElement.setAttribute("data-theme", "dark");
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header" id="top">
+    <nav class="navbar" aria-label="التنقل الرئيسي">
+      <a class="brand" href="#home" aria-label="مؤسسة تسجي الخيرية">
+        <span class="brand-logo" aria-hidden="true">
+          <img src="img/logo.png" alt="">
+        </span>
+        <span>
+          <strong>مؤسسة تسجي الخيرية</strong>
+          <small>Tzu Chi Foundation</small>
+        </span>
+      </a>
+
+      <ul class="nav-links" id="primary-navigation">
+        <li><a href="#home">الرئيسية</a></li>
+        <li><a href="#impact">الأثر</a></li>
+        <li><a href="#project">المشروع</a></li>
+        <li><a href="#method">آلية العمل</a></li>
+        <li><a href="#packages">الطرود الغذائية</a></li>
+        <li><a href="#stories">القصص</a></li>
+        <li><a href="#transparency">الشفافية</a></li>
+        <li><a href="#gallery">المعرض</a></li>
+        <li><a href="#contact">تواصل معنا</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="theme-toggle" type="button" aria-label="الوضع الداكن" aria-pressed="false">
+          <span class="theme-toggle-icon" aria-hidden="true">🌙</span>
+          <span class="theme-toggle-text">الوضع الداكن</span>
+        </button>
+
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label="فتح القائمة">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero section" id="home" aria-labelledby="hero-title">
+      <div class="hero-media" aria-hidden="true">
+        <img
+          src="img/الصورة الرئيسية.png"
+          alt=""
+          class="hero-photo"
+        >
+      </div>
+      <div class="hero-overlay"></div>
+      <div class="hero-content container reveal">
+        <div class="project-badge">رقم التوزيع 137 | 16 مارس 2026</div>
+        <h1 id="hero-title">مؤسسة تسجي الخيرية: عطاء يصل إلى قلب غزة</h1>
+        <p>
+          في مارس 2026، نفذت مؤسسة تسجي الخيرية بالتعاون مع شركائها ومتطوعيها المحليين مشروع توزيع مساعدات غذائية استهدف
+          <mark>400 أسرة</mark> في قطاع غزة، ليستفيد منه <mark>1,868 فردًا</mark> في مدينة غزة، النصيرات، ودير البلح.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#impact">شاهد الأثر</a>
+          <a class="btn btn-secondary" href="#project">تعرف على المشروع</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section impact-section" id="impact" aria-labelledby="impact-title">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">الأثر بالأرقام</span>
+          <h2 id="impact-title">نتائج قابلة للقياس في لحظة إنسانية قاسية</h2>
+          <p>الأرقام هنا ليست للعرض فقط، بل لتوثيق وصول الغذاء إلى أسر حقيقية عبر عمل ميداني منظم.</p>
+        </div>
+        <div class="impact-grid">
+          <article class="metric-card reveal">
+            <strong class="counter" data-target="400">0</strong>
+            <span>أسرة مستفيدة</span>
+          </article>
+          <article class="metric-card reveal">
+            <strong class="counter" data-target="1868">0</strong>
+            <span>فردًا مستفيدًا</span>
+          </article>
+          <article class="metric-card reveal">
+            <strong class="counter" data-target="3">0</strong>
+            <span>مناطق مستهدفة</span>
+          </article>
+          <article class="metric-card reveal">
+            <strong class="counter" data-target="15">0</strong>
+            <span>متطوعًا ميدانيًا</span>
+          </article>
+          <article class="metric-card reveal">
+            <strong class="counter" data-target="31">0</strong>
+            <span>حملة وجبات ساخنة سابقة</span>
+          </article>
+          <article class="metric-card reveal">
+            <strong class="counter" data-target="52910">0</strong>
+            <span>مستفيدًا سابقًا تقريبًا</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section project-section" id="project" aria-labelledby="project-title">
+      <div class="container split-layout">
+        <div class="section-copy reveal">
+          <span class="eyebrow">نظرة عامة</span>
+          <h2 id="project-title">المشروع كاستجابة منظمة، لا كتوزيع عابر</h2>
+          <p class="lead">
+            هذا المشروع ليس مجرد توزيع طرود غذائية، بل نموذج إنساني منظم يقوم على الزيارات المنزلية، تقييم الاحتياج،
+            تصنيف الأسر حسب عدد الأفراد، ثم توزيع المساعدات بشكل عادل وموثق.
+          </p>
+          <p>
+            تبدأ الحكاية من معاناة يومية تحت ضغط النزوح وندرة الغذاء، ثم تتحول إلى آلية تحقق ميداني وتعاون بين الشركاء
+            والمتطوعين المحليين لضمان وصول الدعم إلى الأسر الأكثر احتياجًا بكرامة ووضوح.
+          </p>
+        </div>
+        <aside class="info-card reveal" aria-label="بيانات المشروع">
+          <dl>
+            <div><dt>المشروع</dt><dd>توزيع مساعدات غذائية</dd></div>
+            <div><dt>الشهر</dt><dd>مارس 2026</dd></div>
+            <div><dt>الدولة</dt><dd>فلسطين</dd></div>
+            <div><dt>المنطقة</dt><dd>قطاع غزة</dd></div>
+            <div><dt>رقم التوزيع</dt><dd>137</dd></div>
+          </dl>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section partners-section" aria-labelledby="partners-title">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">الشركاء</span>
+          <h2 id="partners-title">شبكة تعاون حول هدف واحد</h2>
+        </div>
+        <div class="card-grid partners-grid">
+          <article class="partner-card reveal">
+            <div class="partner-image-wrap">
+              <img src="img/مؤسسة تسجي تزو تشي.png" alt="مؤسسة تسجي / تزو تشي" class="partner-image">
+            </div>
+            <span class="partner-role">الشريك المنظم</span>
+            <h3>مؤسسة تسجي / تزو تشي</h3>
+            <p>الداعم والمنسق الرئيسي للمبادرة الإنسانية ومتابعة جودة التنفيذ.</p>
+          </article>
+          <article class="partner-card reveal">
+            <div class="partner-image-wrap">
+              <img src="img/المسجد الكبير.png" alt="المسجد الكبير في تايبيه" class="partner-image is-contain">
+            </div>
+            <span class="partner-role">شريك داعم</span>
+            <h3>المسجد الكبير في تايبيه</h3>
+            <p>شريك داعم في حشد الموارد وربط الجهود الإنسانية بالمجتمع.</p>
+          </article>
+          <article class="partner-card reveal">
+            <div class="partner-image-wrap">
+              <img src="img/مدرسة المناهل.png" alt="مدرسة المناهل في تركيا" class="partner-image">
+            </div>
+            <span class="partner-role">شريك مجتمعي</span>
+            <h3>مدرسة المناهل في تركيا</h3>
+            <p>مساندة مجتمعية للمشروع ضمن شبكة تضامن عابرة للحدود.</p>
+          </article>
+          <article class="partner-card reveal">
+            <div class="partner-image-wrap">
+              <img src="img/متطوعين.png" alt="المتطوعون المحليون في غزة" class="partner-image is-contain">
+            </div>
+            <span class="partner-role">الفريق الميداني</span>
+            <h3>المتطوعون المحليون في غزة</h3>
+            <p>الذراع الميدانية للتحقق، التجهيز، النقل، والتوزيع المباشر.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section areas-section" aria-labelledby="areas-title">
+      <div class="container split-layout areas-layout">
+        <div class="section-copy reveal">
+          <span class="eyebrow">النطاق الجغرافي</span>
+          <h2 id="areas-title">أين وصلنا؟</h2>
+          <p>توزعت المساعدات على ثلاث مناطق في قطاع غزة وفق بيانات الأسر وحجم الاحتياج الموثق ميدانيًا.</p>
+          <div class="area-list" aria-label="مناطق التوزيع">
+            <button class="area-card is-active" type="button" data-region="gaza" aria-pressed="true">
+              <span class="area-card-accent"></span>
+              <span class="area-card-label">منطقة التوزيع</span>
+              <h3>مدينة غزة</h3>
+              <span class="area-stats">
+                <span><strong>124</strong> أسرة</span>
+                <span><strong>617</strong> فردًا</span>
+              </span>
+            </button>
+            <button class="area-card" type="button" data-region="nuseirat" aria-pressed="false">
+              <span class="area-card-accent"></span>
+              <span class="area-card-label">منطقة التوزيع</span>
+              <h3>النصيرات</h3>
+              <span class="area-stats">
+                <span><strong>94</strong> أسرة</span>
+                <span><strong>473</strong> فردًا</span>
+              </span>
+            </button>
+            <button class="area-card" type="button" data-region="deir" aria-pressed="false">
+              <span class="area-card-accent"></span>
+              <span class="area-card-label">منطقة التوزيع</span>
+              <h3>دير البلح</h3>
+              <span class="area-stats">
+                <span><strong>182</strong> أسرة</span>
+                <span><strong>778</strong> فردًا</span>
+              </span>
+            </button>
+          </div>
+        </div>
+        <div class="gaza-map reveal" data-region-map aria-label="خريطة تفاعلية لمناطق التوزيع في قطاع غزة">
+          <div class="map-shell">
+            <div class="map-kicker">
+              <span>Gaza Strip</span>
+              <strong>خريطة التوزيع</strong>
+            </div>
+
+            <div class="map-stage">
+              <div class="interactive-gaza-map gaza-map-stage" aria-label="خريطة تفاعلية لقطاع غزة">
+                <img
+                  src="img/قطاع غزة.png"
+                  alt="خريطة قطاع غزة توضح مناطق التوزيع: غزة، النصيرات، دير البلح"
+                  class="gaza-map-image"
+                >
+
+                <button class="map-region region-gaza is-active" type="button" data-region="gaza" aria-label="مدينة غزة: 124 أسرة، 617 فردًا" aria-pressed="true">
+                  <span class="region-pin" aria-hidden="true"></span>
+                  <span class="region-label">غزة</span>
+                </button>
+
+                <button class="map-region region-nuseirat" type="button" data-region="nuseirat" aria-label="النصيرات: 94 أسرة، 473 فردًا" aria-pressed="false">
+                  <span class="region-pin" aria-hidden="true"></span>
+                  <span class="region-label">النصيرات</span>
+                </button>
+
+                <button class="map-region region-deir" type="button" data-region="deir" aria-label="دير البلح: 182 أسرة، 778 فردًا" aria-pressed="false">
+                  <span class="region-pin" aria-hidden="true"></span>
+                  <span class="region-label">دير البلح</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- <aside class="map-info-panel" aria-live="polite">
+              <span class="map-info-label">منطقة مستهدفة ضمن التوزيع</span>
+              <h3 data-map-title>مدينة غزة</h3>
+              <div class="map-info-stats">
+                <span><strong data-map-families>124</strong> أسرة مستفيدة</span>
+                <span><strong data-map-people>617</strong> فردًا مستفيدًا</span>
+              </div>
+              <p data-map-description>منطقة رئيسية ضمن نطاق التوزيع</p>
+            </aside> -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section fair-section" aria-labelledby="fair-title">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">عدالة التوزيع</span>
+          <h2 id="fair-title">نموذج توزيع عادل حسب حجم الأسرة</h2>
+          <p>تم تصنيف الأسر المستفيدة إلى ثلاث فئات بناءً على عدد أفراد الأسرة لضمان توزيع أكثر عدالة وملاءمة للاحتياج.</p>
+        </div>
+        <div class="fair-grid">
+          <article class="distribution-card reveal">
+            <div class="donut" style="--percent: 68.25"><span>68.25%</span></div>
+            <h3>الأسر الصغيرة</h3>
+            <p><strong>273</strong> أسرة</p>
+            <div class="progress"><span style="width: 68.25%"></span></div>
+          </article>
+          <article class="distribution-card reveal">
+            <div class="donut" style="--percent: 24"><span>24%</span></div>
+            <h3>الأسر المتوسطة</h3>
+            <p><strong>96</strong> أسرة</p>
+            <div class="progress"><span style="width: 24%"></span></div>
+          </article>
+          <article class="distribution-card reveal">
+            <div class="donut" style="--percent: 7.75"><span>7.75%</span></div>
+            <h3>الأسر الكبيرة</h3>
+            <p><strong>31</strong> أسرة</p>
+            <div class="progress"><span style="width: 7.75%"></span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section packages-section" id="packages" aria-labelledby="packages-title">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">الغذاء</span>
+          <h2 id="packages-title">مكونات الطرود الغذائية</h2>
+        </div>
+        <div class="package-grid">
+          <article class="package-card reveal">
+            <figure class="package-image-wrap">
+              <img
+                src="img/package-small-family.png"
+                alt="صورة طرد الأسر الصغيرة - الفئة الأولى"
+                class="package-photo"
+              >
+              <figcaption class="package-category-badge">الفئة الأولى</figcaption>
+            </figure>
+            <div class="package-body">
+              <h3>الأسر الصغيرة</h3>
+              <p class="muted">أقل من خمسة أفراد</p>
+              <ul class="items-list">
+                <li>أرز</li><li>دقيق</li><li>زيت</li><li>سكر</li><li>صلصة طماطم</li><li>خميرة</li><li>حمص</li>
+              </ul>
+              <div class="package-meta">
+                <span>12.6 كغ</span>
+                <strong>83.55 شيكل</strong>
+              </div>
+            </div>
+          </article>
+          <article class="package-card reveal">
+            <figure class="package-image-wrap">
+              <img
+                src="img/package-medium-family.png"
+                alt="صورة طرد الأسر المتوسطة - الفئة الثانية"
+                class="package-photo"
+              >
+              <figcaption class="package-category-badge">الفئة الثانية</figcaption>
+            </figure>
+            <div class="package-body">
+              <h3>الأسر المتوسطة</h3>
+              <p class="muted">من ستة إلى سبعة أفراد</p>
+              <ul class="items-list">
+                <li>أرز</li><li>دقيق</li><li>زيت</li><li>سكر</li><li>صلصة طماطم</li><li>خميرة</li><li>حمص</li>
+              </ul>
+              <div class="package-meta">
+                <span>17 كغ</span>
+                <strong>106.18 شيكل</strong>
+              </div>
+            </div>
+          </article>
+          <article class="package-card reveal">
+            <figure class="package-image-wrap">
+              <img
+                src="img/package-large-family.png"
+                alt="صورة طرد الأسر الكبيرة - الفئة الثالثة"
+                class="package-photo"
+              >
+              <figcaption class="package-category-badge">الفئة الثالثة</figcaption>
+            </figure>
+            <div class="package-body">
+              <h3>الأسر الكبيرة</h3>
+              <p class="muted">ثمانية أفراد فأكثر</p>
+              <ul class="items-list">
+                <li>أرز</li><li>دقيق</li><li>زيت</li><li>سكر</li><li>صلصة طماطم</li><li>خميرة</li><li>حمص</li>
+              </ul>
+              <div class="package-meta">
+                <span>24 كغ</span>
+                <strong>147.61 شيكل</strong>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section method-section" id="method" aria-labelledby="method-title">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">آلية العمل</span>
+          <h2 id="method-title">من التبرع إلى التوثيق الميداني</h2>
+        </div>
+        <ol class="timeline">
+          <li class="reveal"><span>1</span><p>جمع التبرعات</p></li>
+          <li class="reveal"><span>2</span><p>التواصل مع الفريق المحلي</p></li>
+          <li class="reveal"><span>3</span><p>مقارنة أسعار الموردين</p></li>
+          <li class="reveal"><span>4</span><p>اختيار المورد الأنسب</p></li>
+          <li class="reveal"><span>5</span><p>تشكيل فرق المتطوعين</p></li>
+          <li class="reveal"><span>6</span><p>تدريب المتطوعين عن بعد</p></li>
+          <li class="reveal"><span>7</span><p>تنفيذ الزيارات المنزلية</p></li>
+          <li class="reveal"><span>8</span><p>تدقيق البيانات واعتمادها</p></li>
+          <li class="reveal"><span>9</span><p>تجهيز الطرود الغذائية</p></li>
+          <li class="reveal"><span>10</span><p>النقل والتوزيع الميداني</p></li>
+          <li class="reveal"><span>11</span><p>التوثيق والمتابعة</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section volunteers-section" aria-labelledby="volunteers-title">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">المتطوعون</span>
+          <h2 id="volunteers-title">أبطال من الميدان</h2>
+          <p>
+            تكوّن الفريق من 15 متطوعًا محليًا، تم توزيعهم على فرق ميدانية في مدينة غزة، النصيرات، ودير البلح،
+            إضافة إلى فريق لوجستي مسؤول عن النقل والتجهيز.
+          </p>
+          <p class="section-note">صور المتطوعين توثق جانبًا من الفريق المحلي الذي ساهم في تنفيذ الزيارات الميدانية والتوزيع.</p>
+        </div>
+        <div class="volunteer-grid">
+          <article class="volunteer-card reveal">
+            <div class="volunteer-photo-grid volunteer-photo-grid-5" aria-label="صور فريق مدينة غزة">
+              <img src="img/فريق غزة العضو الاول.png" alt="عضو من فريق مدينة غزة" class="volunteer-photo photo-focus-center">
+              <img src="img/فريق غزة العضو الثاني.png" alt="عضو من فريق مدينة غزة" class="volunteer-photo">
+              <img src="img/فريق غزة العضو الثالث.png" alt="عضو من فريق مدينة غزة" class="volunteer-photo">
+              <img src="img/فريق غزة العضو الرابع.png" alt="عضو من فريق مدينة غزة" class="volunteer-photo">
+              <img src="img/فريق غزة العضو الخامس.png" alt="عضو من فريق مدينة غزة" class="volunteer-photo">
+            </div>
+            <div class="volunteer-card-body">
+              <span class="volunteer-role">فريق ميداني</span>
+              <h3>فريق مدينة غزة</h3>
+              <p class="volunteer-count">5 متطوعين</p>
+              <small>ساهم الفريق في الزيارات المنزلية، التحقق من البيانات، وتوزيع المساعدات داخل مدينة غزة.</small>
+            </div>
+          </article>
+          <article class="volunteer-card reveal">
+            <div class="volunteer-photo-grid volunteer-photo-grid-3" aria-label="صور فريق النصيرات">
+              <img src="img/فريق النصيرات العضو الاول.png" alt="عضو من فريق النصيرات" class="volunteer-photo">
+              <img src="img/فريق النصيرات العضو الثاني.png" alt="عضو من فريق النصيرات" class="volunteer-photo">
+              <img src="img/فريق النصيرات العضو الثالث.png" alt="عضو من فريق النصيرات" class="volunteer-photo">
+            </div>
+            <div class="volunteer-card-body">
+              <span class="volunteer-role">فريق ميداني</span>
+              <h3>فريق النصيرات</h3>
+              <p class="volunteer-count">3 متطوعين</p>
+              <small>عمل الفريق على الوصول للأسر المستفيدة في النصيرات وتوثيق الاحتياج ميدانيًا.</small>
+            </div>
+          </article>
+          <article class="volunteer-card reveal">
+            <div class="volunteer-photo-grid volunteer-photo-grid-5" aria-label="صور فريق دير البلح">
+              <img src="img/فريق دير البلح العضو الاول.png" alt="عضو من فريق دير البلح" class="volunteer-photo photo-focus-center">
+              <img src="img/فريق دير البلح العضو الثاني.png" alt="عضو من فريق دير البلح" class="volunteer-photo">
+              <img src="img/فريق دير البلح العضو الثالث.png" alt="عضو من فريق دير البلح" class="volunteer-photo">
+              <img src="img/فريق دير البلح العضو الرابع.png" alt="عضو من فريق دير البلح" class="volunteer-photo">
+              <img src="img/فريق دير البلح العضو الخامس.png" alt="عضو من فريق دير البلح" class="volunteer-photo">
+            </div>
+            <div class="volunteer-card-body">
+              <span class="volunteer-role">فريق ميداني</span>
+              <h3>فريق دير البلح</h3>
+              <p class="volunteer-count">5 متطوعين</p>
+              <small>تابع الفريق أكبر عدد من الأسر المستفيدة ضمن هذا التوزيع في منطقة دير البلح.</small>
+            </div>
+          </article>
+          <article class="volunteer-card reveal">
+            <div class="volunteer-photo-grid volunteer-photo-grid-2" aria-label="صور الفريق اللوجستي">
+              <img src="img/الفريق اللوجستي العضو الاول.png" alt="عضو من الفريق اللوجستي" class="volunteer-photo">
+              <img src="img/الفريق اللوجستي العضو الثاني.png" alt="عضو من الفريق اللوجستي" class="volunteer-photo">
+            </div>
+            <div class="volunteer-card-body">
+              <span class="volunteer-role">فريق لوجستي</span>
+              <h3>الفريق اللوجستي</h3>
+              <p class="volunteer-count">2 متطوعين</p>
+              <small>تولى الفريق دعم عمليات النقل، التجهيز، والمتابعة اللوجستية لضمان وصول الطرود بشكل منظم.</small>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section stories-section" id="stories" aria-labelledby="stories-title">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">الجانب الإنساني</span>
+          <h2 id="stories-title">قصص من قلب غزة</h2>
+        </div>
+        <div class="story-grid">
+          <article class="story-card reveal" data-story="family">
+            <figure class="story-image-wrap">
+              <img
+                src="img/عائلة تبحث عن الأمان.png"
+                alt="صورة توثق جانبًا من معاناة عائلة في غزة"
+                class="story-photo story-photo-focus-center"
+              >
+            </figure>
+            <div class="story-card-body">
+              <span class="story-badge">قصة إنسانية</span>
+              <h3>عائلة تبحث عن الأمان</h3>
+              <p>بين الخيام والبيوت المهدمة، وصلت المساعدة إلى عائلة فقدت الكثير، لكنها ما زالت تتمسك بالأمل.</p>
+              <button class="text-button story-read-more" type="button" data-story="family">اقرأ المزيد</button>
+            </div>
+          </article>
+          <article class="story-card reveal" data-story="mother">
+            <figure class="story-image-wrap">
+              <img
+                src="img/أم تصنع الصمود.png"
+                alt="صورة توثق صمود أم في غزة"
+                class="story-photo story-photo-focus-center"
+              >
+            </figure>
+            <div class="story-card-body">
+              <span class="story-badge">قصة إنسانية</span>
+              <h3>أم تصنع الصمود</h3>
+              <p>أم تتحمل مسؤولية أسرتها في ظروف قاسية، وجدت في الطرد الغذائي سندًا مؤقتًا يخفف عنها عبء الأيام.</p>
+              <button class="text-button story-read-more" type="button" data-story="mother">اقرأ المزيد</button>
+            </div>
+          </article>
+          <article class="story-card reveal" data-story="volunteers">
+            <figure class="story-image-wrap">
+              <img
+                src="img/متطوعين.png"
+                alt="صورة توثق جانبًا من عمل المتطوعين المحليين"
+                class="story-photo story-photo-focus-center"
+              >
+            </figure>
+            <div class="story-card-body">
+              <span class="story-badge">قصة إنسانية</span>
+              <h3>متطوعون يحملون الرحمة</h3>
+              <p>لم يكن دور المتطوعين تعبئة استمارات فقط، بل كانوا شهودًا على المعاناة وجسرًا لوصول المساعدة بكرامة.</p>
+              <button class="text-button story-read-more" type="button" data-story="volunteers">اقرأ المزيد</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section finance-section" id="transparency" aria-labelledby="finance-title">
+      <div class="container split-layout">
+        <div class="section-copy reveal">
+          <span class="eyebrow">المساءلة</span>
+          <h2 id="finance-title">الشفافية المالية</h2>
+          <p>يعرض هذا الملخص بنود الصرف الرئيسية كما وردت في بيانات المشروع، مع إبراز التكلفة الإجمالية والقيمة التقريبية بالدولار.</p>
+          <div class="total-box">
+            <span>الإجمالي</span>
+            <strong>43,013.40 شيكل</strong>
+            <small>ما يعادل تقريبًا 15,641 دولار</small>
+          </div>
+        </div>
+        <div class="expense-chart reveal" aria-label="ملخص المصروفات">
+          <div class="bar-row" style="--value: 87.36"><span>تكلفة المواد الغذائية</span><b>37,578.40 شيكل</b></div>
+          <div class="bar-row" style="--value: 1.86"><span>النقل للمنطقة الوسطى ودير البلح</span><b>800 شيكل</b></div>
+          <div class="bar-row" style="--value: 0.37"><span>النقل لمدينة غزة</span><b>160 شيكل</b></div>
+          <div class="bar-row" style="--value: 0.35"><span>تغليف الطرود</span><b>150 شيكل</b></div>
+          <div class="bar-row" style="--value: 0.46"><span>مواصلات ونثريات</span><b>200 شيكل</b></div>
+          <div class="bar-row" style="--value: 9.59"><span>دعم وتقدير المتطوعين</span><b>4,125 شيكل</b></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section gallery-section" id="gallery" aria-labelledby="gallery-title">
+      <div class="container">
+        <div class="section-heading reveal">
+          <span class="eyebrow">التوثيق البصري</span>
+          <h2 id="gallery-title">معرض المشروع</h2>
+        </div>
+        <div class="gallery-grid">
+          <button class="gallery-item reveal" type="button" data-caption="الزيارات المنزلية">
+            <div class="image-placeholder gallery-image"><span>الزيارات المنزلية</span></div>
+          </button>
+          <button class="gallery-item reveal" type="button" data-caption="تجهيز الطرود">
+            <div class="image-placeholder gallery-image"><span>تجهيز الطرود</span></div>
+          </button>
+          <button class="gallery-item reveal" type="button" data-caption="الطرود الغذائية">
+            <div class="image-placeholder gallery-image"><span>الطرود الغذائية</span></div>
+          </button>
+          <button class="gallery-item reveal" type="button" data-caption="فريق المتطوعين">
+            <div class="image-placeholder gallery-image"><span>فريق المتطوعين</span></div>
+          </button>
+          <button class="gallery-item reveal" type="button" data-caption="النقل الميداني">
+            <div class="image-placeholder gallery-image"><span>النقل الميداني</span></div>
+          </button>
+          <button class="gallery-item reveal" type="button" data-caption="لحظة التوزيع">
+            <div class="image-placeholder gallery-image"><span>لحظة التوزيع</span></div>
+          </button>
+          <button class="gallery-item reveal" type="button" data-caption="قصص المستفيدين">
+            <div class="image-placeholder gallery-image"><span>قصص المستفيدين</span></div>
+          </button>
+          <button class="gallery-item reveal" type="button" data-caption="شركاء المشروع">
+            <div class="image-placeholder gallery-image"><span>شركاء المشروع</span></div>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section cta-section" id="contact" aria-labelledby="cta-title">
+      <div class="container cta-inner reveal">
+        <span class="eyebrow">استمرار الأثر</span>
+        <h2 id="cta-title">معًا نستطيع أن نصل إلى المزيد</h2>
+        <p>كل مساهمة، مهما كانت صغيرة، يمكن أن تتحول إلى طعام حقيقي يصل إلى عائلة تحتاجه.</p>
+        <div class="hero-actions">
+          <a
+            class="btn btn-primary"
+            href="https://wa.me/905348387922?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%AA%D9%88%D8%A7%D8%B5%D9%84%20%D9%85%D8%B9%D9%83%D9%85%20%D8%A8%D8%AE%D8%B5%D9%88%D8%B5%20%D8%AF%D8%B9%D9%85%20%D9%85%D8%B4%D8%B1%D9%88%D8%B9%20%D8%AA%D9%88%D8%B2%D9%8A%D8%B9%20%D8%A7%D9%84%D9%85%D8%B3%D8%A7%D8%B9%D8%AF%D8%A7%D8%AA%20%D8%A7%D9%84%D8%BA%D8%B0%D8%A7%D8%A6%D9%8A%D8%A9%20%D9%81%D9%8A%20%D8%BA%D8%B2%D8%A9."
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="تواصل معنا عبر واتساب"
+          >تواصل معنا</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <img src="img/logo.png" alt="شعار مؤسسة تسجي الخيرية" class="footer-logo">
+        <h2>مؤسسة تسجي الخيرية</h2>
+        <p>محفظة إنسانية توثق مشروع توزيع المساعدات الغذائية في غزة، مارس 2026، بلغة واضحة وشفافة.</p>
+      </div>
+      <div>
+        <h3>روابط سريعة</h3>
+        <ul>
+          <li><a href="#impact">الأثر</a></li>
+          <li><a href="#method">آلية العمل</a></li>
+          <li><a href="#transparency">الشفافية</a></li>
+          <li><a href="#gallery">المعرض</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>بيانات المشروع</h3>
+        <p>رقم التوزيع 137</p>
+        <p>قطاع غزة، فلسطين</p>
+        <p>16 مارس 2026</p>
+      </div>
+    </div>
+    <div class="footer-bottom container">
+      <p>هذا الموقع التعريفي مبني على بيانات تقرير توزيع المساعدات الغذائية في غزة – مارس 2026.</p>
+      <p>© 2026 مؤسسة تسجي الخيرية. جميع الحقوق محفوظة.</p>
+    </div>
+  </footer>
+
+  <button class="back-to-top" type="button" aria-label="العودة إلى الأعلى">↑</button>
+
+  <div class="lightbox" role="dialog" aria-modal="true" aria-label="معرض الصور" hidden>
+    <button class="lightbox-close" type="button" aria-label="إغلاق">×</button>
+    <div class="lightbox-content">
+      <div class="image-placeholder lightbox-image"><span></span></div>
+      <p class="lightbox-caption"></p>
+    </div>
+  </div>
+
+  <div class="story-modal" role="dialog" aria-modal="true" aria-labelledby="story-modal-title" hidden>
+    <div class="story-modal-backdrop" data-story-close></div>
+    <article class="story-modal-content">
+      <button class="story-modal-close" type="button" aria-label="إغلاق القصة" data-story-close>×</button>
+
+      <figure class="story-modal-image-wrap">
+        <img src="" alt="" class="story-modal-image" data-story-modal-image>
+      </figure>
+
+      <div class="story-modal-body">
+        <span class="story-modal-kicker" data-story-modal-kicker>قصة إنسانية</span>
+        <h3 id="story-modal-title" data-story-modal-title></h3>
+        <p class="story-modal-summary" data-story-modal-summary></p>
+        <div class="story-modal-details" data-story-modal-details></div>
+      </div>
+    </article>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
