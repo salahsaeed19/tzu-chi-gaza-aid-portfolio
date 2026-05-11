@@ -141,6 +141,10 @@ body {
   transition: background 0.35s ease, color 0.35s ease;
 }
 
+html[lang="zh-Hant"] body {
+  font-family: "Microsoft JhengHei", "PingFang TC", "Noto Sans TC", "Segoe UI", Arial, sans-serif;
+}
+
 body::before {
   content: "";
   position: fixed;
@@ -273,7 +277,8 @@ main,
 }
 
 .menu-toggle,
-.theme-toggle {
+.theme-toggle,
+.language-option {
   width: 44px;
   height: 44px;
   border: 1px solid var(--border);
@@ -301,8 +306,39 @@ main,
   white-space: nowrap;
 }
 
+.language-switcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--card);
+  transition: background 0.25s ease, border-color 0.25s ease;
+}
+
+.language-option {
+  width: auto;
+  min-width: 48px;
+  height: 36px;
+  padding: 0 10px;
+  color: var(--muted);
+  background: transparent;
+  font-size: 0.82rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.language-option:hover,
+.language-option.is-active {
+  color: var(--mint);
+  border-color: var(--border-strong);
+  background: var(--nav-hover-bg);
+}
+
 .theme-toggle:hover,
-.menu-toggle:hover {
+.menu-toggle:hover,
+.language-option:hover {
   transform: translateY(-1px);
   border-color: var(--border-strong);
   background: var(--card-strong);
@@ -310,6 +346,7 @@ main,
 
 .theme-toggle:focus-visible,
 .menu-toggle:focus-visible,
+.language-option:focus-visible,
 .btn:focus-visible,
 .text-button:focus-visible,
 .gallery-item:focus-visible,
@@ -432,6 +469,28 @@ main,
 .hero-content {
   max-width: 830px;
   margin-inline-start: auto;
+}
+
+html[dir="ltr"] .hero-content {
+  margin-inline: auto;
+  text-align: center;
+}
+
+html[dir="ltr"] .hero h1,
+html[dir="ltr"] .hero p,
+html[lang="zh-Hant"] .hero h1,
+html[lang="zh-Hant"] .hero p {
+  margin-inline: auto;
+}
+
+html[dir="ltr"] .hero-actions,
+html[lang="zh-Hant"] .hero-actions {
+  justify-content: center;
+}
+
+html[dir="ltr"] .project-badge,
+html[lang="zh-Hant"] .project-badge {
+  margin-inline: auto;
 }
 
 .project-badge,
@@ -570,7 +629,7 @@ mark {
 }
 
 .impact-grid {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
 }
 
 .metric-card,
@@ -592,6 +651,7 @@ mark {
 .metric-card {
   padding: 22px;
   min-height: 152px;
+  min-width: 0;
   display: grid;
   align-content: center;
   gap: 8px;
@@ -610,8 +670,10 @@ mark {
 
 .metric-card strong {
   color: var(--gold);
-  font-size: clamp(2rem, 6vw, 3.6rem);
+  font-size: clamp(2rem, 4.8vw, 3.2rem);
   line-height: 1;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
 }
 
 .metric-card span {
@@ -910,7 +972,7 @@ mark {
   position: relative;
   width: min(100%, 460px);
   margin-inline: auto;
-  aspect-ratio: 677 / 720;
+  aspect-ratio: 1215 / 1295;
   overflow: hidden;
   border: 1px solid var(--border);
   border-radius: var(--radius);
@@ -920,7 +982,15 @@ mark {
   box-shadow: 0 28px 70px rgba(0, 0, 0, 0.28);
 }
 
-.interactive-gaza-map::before {
+.gaza-map-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  transform: translateX(-8%) scale(1.18);
+  transform-origin: center center;
+}
+
+.gaza-map-layer::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -937,8 +1007,10 @@ mark {
   z-index: 1;
   width: 100%;
   height: 100%;
+  max-width: none;
   display: block;
-  object-fit: contain;
+  object-fit: cover;
+  object-position: center center;
 }
 
 .map-region {
@@ -1010,7 +1082,7 @@ mark {
   color: #ffffff;
   background: color-mix(in srgb, var(--region-color) 76%, rgba(5, 11, 18, 0.72));
   box-shadow: 0 12px 28px color-mix(in srgb, var(--region-color) 28%, transparent);
-  font-size: 0.78rem;
+  font-size: 0.74rem;
   transform: translateY(-50%);
   transition: transform 0.24s ease, background 0.24s ease, border-color 0.24s ease;
   white-space: nowrap;
@@ -1960,7 +2032,8 @@ html[data-theme="light"] .brand-logo {
 }
 
 html[data-theme="light"] .theme-toggle,
-html[data-theme="light"] .menu-toggle {
+html[data-theme="light"] .menu-toggle,
+html[data-theme="light"] .language-switcher {
   background: rgba(255, 255, 255, 0.74);
   box-shadow: 0 12px 30px rgba(0, 70, 45, 0.08);
 }
@@ -2141,7 +2214,6 @@ html[data-theme="light"] .site-footer {
 }
 
 @media (min-width: 700px) {
-  .impact-grid,
   .gallery-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
@@ -2188,10 +2260,6 @@ html[data-theme="light"] .site-footer {
     align-items: center;
   }
 
-  .impact-grid {
-    grid-template-columns: repeat(6, minmax(0, 1fr));
-  }
-
   .timeline {
     grid-template-columns: repeat(6, minmax(0, 1fr));
     gap: 20px 14px;
@@ -2229,6 +2297,17 @@ html[data-theme="light"] .site-footer {
 
   .gallery-grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 1179px) {
+  .theme-toggle {
+    width: 44px;
+    padding: 0;
+  }
+
+  .theme-toggle-text {
+    display: none;
   }
 }
 
@@ -2275,7 +2354,7 @@ html[data-theme="light"] .site-footer {
 
   .region-label {
     padding: 5px 8px;
-    font-size: 0.75rem;
+    font-size: 0.72rem;
   }
 
   .region-pin {
@@ -2285,6 +2364,10 @@ html[data-theme="light"] .site-footer {
 
   .map-info-stats {
     grid-template-columns: 1fr;
+  }
+
+  .gaza-map-layer {
+    transform: translateX(-6%) scale(1.14);
   }
 }
 
@@ -2302,6 +2385,10 @@ html[data-theme="light"] .site-footer {
 
   .impact-grid {
     grid-template-columns: 1fr;
+  }
+
+  .metric-card strong {
+    font-size: clamp(2.4rem, 12vw, 3.3rem);
   }
 
   .hero-actions,
@@ -2338,6 +2425,18 @@ html[data-theme="light"] .site-footer {
 
   .theme-toggle-text {
     display: none;
+  }
+
+  .language-switcher {
+    gap: 2px;
+    padding: 3px;
+  }
+
+  .language-option {
+    min-width: 38px;
+    height: 34px;
+    padding-inline: 8px;
+    font-size: 0.76rem;
   }
 
   .cta-inner {
