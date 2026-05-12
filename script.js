@@ -3,7 +3,12 @@ const LANGUAGE_STORAGE_KEY = "tsuchi-language";
 const themeToggle = document.querySelector(".theme-toggle");
 const themeToggleIcon = document.querySelector(".theme-toggle-icon");
 const themeToggleText = document.querySelector(".theme-toggle-text");
-const languageOptions = document.querySelectorAll(".language-option[data-lang]");
+const languageDropdown = document.querySelector("[data-language-dropdown]");
+const languageDropdownToggle = document.querySelector(".language-dropdown-toggle");
+const languageDropdownMenu = document.querySelector(".language-dropdown-menu");
+const languageOptions = document.querySelectorAll(".language-dropdown-option[data-lang]");
+const languageCurrentCode = document.querySelector("[data-language-current-code]");
+const languageCurrentLabel = document.querySelector("[data-language-current-label]");
 const menuToggle = document.querySelector(".menu-toggle");
 const navLinks = document.querySelector(".nav-links");
 const navItems = document.querySelectorAll(".nav-links a");
@@ -37,6 +42,12 @@ let selectedRegion = "gaza";
 let lastStoryTrigger = null;
 let currentStoryKey = null;
 let currentLanguage = "ar";
+
+const languageLabels = {
+  ar: { code: "AR", label: "العربية" },
+  zh: { code: "ZH", label: "中文" },
+  en: { code: "EN", label: "English" }
+};
 
 const translations = {
   ar: {
@@ -440,6 +451,207 @@ const translations = {
     "lightbox.aria": "圖片集",
     "close": "關閉",
     "gallery.fallback": "專案圖片"
+  },
+  en: {
+    "document.title": "Tzu Chi Foundation | Gaza Food Aid Distribution",
+    "document.description": "A humanitarian portfolio for the Gaza food aid distribution project of March 2026 by Tzu Chi Foundation.",
+    "nav.aria": "Main navigation",
+    "brand.aria": "Tzu Chi Foundation",
+    "brand.name": "Tzu Chi Foundation",
+    "brand.logoAlt": "Tzu Chi Foundation logo",
+    "nav.home": "Home",
+    "nav.impact": "Impact",
+    "nav.project": "Project",
+    "nav.method": "Workflow",
+    "nav.packages": "Food Packages",
+    "nav.stories": "Stories",
+    "nav.transparency": "Transparency",
+    "nav.gallery": "Gallery",
+    "nav.contact": "Contact Us",
+    "language.aria": "Change language",
+    "theme.dark": "Dark Mode",
+    "theme.light": "Light Mode",
+    "menu.open": "Open menu",
+    "menu.close": "Close menu",
+    "hero.badge": "Distribution No. 137 | 16 March 2026",
+    "hero.title": "Tzu Chi Foundation: Compassion Reaching the Heart of Gaza",
+    "hero.subtitle": "In March 2026, Tzu Chi Foundation, in cooperation with its partners and local volunteers, implemented a food aid distribution project that supported <mark>400 families</mark> in the Gaza Strip, benefiting <mark>1,868 people</mark> across Gaza City, Al-Nuseirat, and Deir al-Balah.",
+    "hero.impactButton": "View Impact",
+    "hero.projectButton": "Explore the Project",
+    "impact.eyebrow": "Impact in Numbers",
+    "impact.title": "Measurable Humanitarian Outcomes in a Difficult Moment",
+    "impact.description": "These numbers are not just for display; they document food reaching real families through organized fieldwork.",
+    "metric.families": "Beneficiary Families",
+    "metric.people": "Beneficiary Individuals",
+    "metric.areas": "Targeted Areas",
+    "metric.volunteers": "Field Volunteers",
+    "metric.meals": "Previous Hot Meal Campaigns",
+    "metric.previous": "Approx. Previous Beneficiaries",
+    "project.eyebrow": "Overview",
+    "project.title": "An Organized Response, Not a One-Time Distribution",
+    "project.lead": "This project is not merely a food package distribution; it is an organized humanitarian model based on home visits, needs assessment, family-size classification, and fair, documented aid delivery.",
+    "project.description": "The story begins with daily hardship under displacement and food scarcity, then becomes a field verification process and a partnership effort to ensure aid reaches the most vulnerable families with dignity and transparency.",
+    "project.infoAria": "Project details",
+    "project.info.project": "Project",
+    "project.info.foodAid": "Food Aid Distribution",
+    "project.info.month": "Month",
+    "project.info.march": "March 2026",
+    "project.info.country": "Country",
+    "project.info.palestine": "Palestine",
+    "project.info.region": "Area",
+    "project.info.gazaStrip": "Gaza Strip",
+    "project.info.distribution": "Distribution No.",
+    "partners.eyebrow": "Partners",
+    "partners.title": "A Network of Collaboration Around One Goal",
+    "partners.tzuchi.alt": "Tzu Chi Foundation",
+    "partners.tzuchi.role": "Organizing Partner",
+    "partners.tzuchi.name": "Tzu Chi Foundation",
+    "partners.tzuchi.description": "The main supporter and coordinator of the humanitarian initiative and implementation quality follow-up.",
+    "partners.mosque.alt": "Taipei Grand Mosque",
+    "partners.mosque.role": "Supporting Partner",
+    "partners.mosque.name": "Taipei Grand Mosque",
+    "partners.mosque.description": "A supporting partner in mobilizing resources and connecting humanitarian efforts with the community.",
+    "partners.school.alt": "Al-Manahil School in Turkey",
+    "partners.school.role": "Community Partner",
+    "partners.school.name": "Al-Manahil School in Turkey",
+    "partners.school.description": "Community-based support within a cross-border solidarity network.",
+    "partners.volunteers.alt": "Local Volunteers in Gaza",
+    "partners.volunteers.role": "Field Team",
+    "partners.volunteers.name": "Local Volunteers in Gaza",
+    "partners.volunteers.description": "The field arm for verification, preparation, transportation, and direct distribution.",
+    "areas.eyebrow": "Geographic Scope",
+    "areas.title": "Where Did We Reach?",
+    "areas.description": "Aid was distributed across three areas in the Gaza Strip based on family data and field-documented levels of need.",
+    "areas.listAria": "Distribution areas",
+    "areas.mapAria": "Interactive map of distribution areas in the Gaza Strip",
+    "areas.stageAria": "Interactive Gaza Strip map",
+    "areas.mapTitle": "Distribution Map",
+    "areas.mapAlt": "Map of the Gaza Strip showing distribution areas: Gaza, Al-Nuseirat, and Deir al-Balah",
+    "areas.cardLabel": "Distribution Area",
+    "areas.gaza": "Gaza City",
+    "areas.gazaShort": "Gaza",
+    "areas.nuseirat": "Al-Nuseirat",
+    "areas.deir": "Deir al-Balah",
+    "areas.gazaAria": "Gaza City: 124 families, 617 people",
+    "areas.nuseiratAria": "Al-Nuseirat: 94 families, 473 people",
+    "areas.deirAria": "Deir al-Balah: 182 families, 778 people",
+    "unit.family": "families",
+    "unit.person": "people",
+    "unit.kg": "kg",
+    "unit.shekel": "ILS",
+    "fair.eyebrow": "Fair Distribution",
+    "fair.title": "A Fair Distribution Model Based on Family Size",
+    "fair.description": "Beneficiary families were classified into three categories based on family size to ensure a more fair and needs-based distribution.",
+    "packages.eyebrow": "Food Aid",
+    "packages.title": "Food Package Contents",
+    "packages.category1": "Category One",
+    "packages.category2": "Category Two",
+    "packages.category3": "Category Three",
+    "packages.small.title": "Small Families",
+    "packages.small.subtitle": "Fewer than five members",
+    "packages.small.alt": "Food package photo for small families - category one",
+    "packages.medium.title": "Medium Families",
+    "packages.medium.subtitle": "Six to seven members",
+    "packages.medium.alt": "Food package photo for medium families - category two",
+    "packages.large.title": "Large Families",
+    "packages.large.subtitle": "Eight members or more",
+    "packages.large.alt": "Food package photo for large families - category three",
+    "food.rice": "Rice",
+    "food.flour": "Flour",
+    "food.oil": "Oil",
+    "food.sugar": "Sugar",
+    "food.tomato": "Tomato Paste",
+    "food.yeast": "Yeast",
+    "food.chickpeas": "Chickpeas",
+    "method.eyebrow": "Workflow",
+    "method.title": "From Donation to Field Documentation",
+    "method.step1": "Collecting Donations",
+    "method.step2": "Coordinating with the Local Team",
+    "method.step3": "Comparing Supplier Prices",
+    "method.step4": "Selecting the Best Supplier",
+    "method.step5": "Forming Volunteer Teams",
+    "method.step6": "Remote Volunteer Training",
+    "method.step7": "Conducting Home Visits",
+    "method.step8": "Reviewing and Approving Data",
+    "method.step9": "Preparing Food Packages",
+    "method.step10": "Transportation and Field Distribution",
+    "method.step11": "Documentation and Follow-Up",
+    "volunteers.eyebrow": "Volunteers",
+    "volunteers.title": "Heroes from the Field",
+    "volunteers.description": "The team consisted of 15 local volunteers distributed across field teams in Gaza City, Al-Nuseirat, and Deir al-Balah, in addition to a logistics team responsible for transport and preparation.",
+    "volunteers.note": "Volunteer photos document part of the local team that contributed to field visits and distribution.",
+    "volunteers.fieldRole": "Field Team",
+    "volunteers.logisticsRole": "Logistics Team",
+    "volunteers.gaza.title": "Gaza City Team",
+    "volunteers.gaza.count": "5 volunteers",
+    "volunteers.gaza.description": "The team contributed to home visits, data verification, and aid distribution inside Gaza City.",
+    "volunteers.gaza.alt": "Member of the Gaza City team",
+    "volunteers.nuseirat.title": "Al-Nuseirat Team",
+    "volunteers.nuseirat.count": "3 volunteers",
+    "volunteers.nuseirat.description": "The team worked to reach beneficiary families in Al-Nuseirat and document needs in the field.",
+    "volunteers.nuseirat.alt": "Member of the Al-Nuseirat team",
+    "volunteers.deir.title": "Deir al-Balah Team",
+    "volunteers.deir.count": "5 volunteers",
+    "volunteers.deir.description": "The team followed up with the largest number of beneficiary families in this distribution within Deir al-Balah.",
+    "volunteers.deir.alt": "Member of the Deir al-Balah team",
+    "volunteers.logistics.title": "Logistics Team",
+    "volunteers.logistics.count": "2 volunteers",
+    "volunteers.logistics.description": "The team supported transportation, preparation, and logistics follow-up to ensure packages arrived in an organized way.",
+    "volunteers.logistics.alt": "Member of the logistics team",
+    "stories.eyebrow": "Human Side",
+    "stories.title": "Stories from the Heart of Gaza",
+    "stories.badge": "Human Story",
+    "stories.readMore": "Read More",
+    "stories.close": "Close story",
+    "stories.family.title": "A Family Searching for Safety",
+    "stories.family.summary": "Among tents and damaged homes, aid reached a family that had lost so much, yet still held on to hope.",
+    "stories.family.alt": "Photo documenting part of a family's hardship in Gaza",
+    "stories.mother.title": "A Mother Shaping Resilience",
+    "stories.mother.summary": "A mother carrying the responsibility of her family in harsh conditions found temporary support in the food package, easing the burden of difficult days.",
+    "stories.mother.alt": "Photo documenting a mother's resilience in Gaza",
+    "stories.volunteers.title": "Volunteers Carrying Compassion",
+    "stories.volunteers.summary": "The volunteers' role was not limited to filling forms; they witnessed hardship and became a bridge for aid to arrive with dignity.",
+    "stories.volunteers.alt": "Photo documenting part of the work of local volunteers",
+    "finance.eyebrow": "Accountability",
+    "finance.title": "Financial Transparency",
+    "finance.description": "This summary presents the main spending items as reported in the project data, highlighting the total cost and approximate value in USD.",
+    "finance.total": "Total",
+    "finance.usd": "Approximate equivalent: 15,641 USD",
+    "finance.chartAria": "Expense summary",
+    "finance.food": "Food Items Cost",
+    "finance.transportCentral": "Transport to Central Area and Deir al-Balah",
+    "finance.transportGaza": "Transport to Gaza City",
+    "finance.packaging": "Package Wrapping",
+    "finance.misc": "Transportation and Miscellaneous",
+    "finance.volunteerSupport": "Volunteer Support and Appreciation",
+    "gallery.eyebrow": "Visual Documentation",
+    "gallery.title": "Gallery",
+    "gallery.homeVisits": "Home Visits",
+    "gallery.preparing": "Package Preparation",
+    "gallery.packages": "Food Packages",
+    "gallery.volunteers": "Volunteer Team",
+    "gallery.transport": "Field Transportation",
+    "gallery.distribution": "Distribution Moment",
+    "gallery.beneficiaries": "Beneficiary Stories",
+    "gallery.partners": "Project Partners",
+    "cta.eyebrow": "Continuing the Impact",
+    "cta.title": "Together, We Can Reach More",
+    "cta.description": "Every contribution, no matter how small, can become real food reaching a family in need.",
+    "cta.whatsappAria": "Contact us via WhatsApp",
+    "footer.description": "A humanitarian portfolio documenting the Gaza food aid distribution project of March 2026 in a clear and transparent way.",
+    "footer.quickLinks": "Quick Links",
+    "footer.projectInfo": "Project Details",
+    "footer.distribution": "Distribution No. 137",
+    "footer.location": "Gaza Strip, Palestine",
+    "footer.date": "16 March 2026",
+    "footer.creditPrefix": "Designed and developed by",
+    "footer.creditName": "Eng. Salah ElDin Saeed Abu Saif",
+    "footer.creditAria": "Visit the profile of Eng. Salah ElDin Saeed Abu Saif",
+    "footer.copyright": "© 2026 Tzu Chi Foundation. All rights reserved.",
+    "backToTop": "Back to top",
+    "lightbox.aria": "Gallery",
+    "close": "Close",
+    "gallery.fallback": "Project photo"
   }
 };
 
@@ -467,6 +679,17 @@ const storyData = {
         "本專案在發放前透過家戶訪視與需求評估，確保援助送達處境嚴峻的家庭。對這個家庭而言，食物包是一份即時支持，減輕每天尋找食物的壓力，也讓家人在漫長的不安中獲得片刻喘息。",
         "這個故事呈現了專案如何把支持轉化為暫時的安全感與被守護的尊嚴。"
       ]
+    },
+    en: {
+      title: "A Family Searching for Safety",
+      kicker: "A Story from the Heart of Gaza",
+      summary: "Among tents and damaged homes, aid reached a family that had lost so much, yet still held on to hope.",
+      imageAlt: "Photo documenting part of a family's hardship in Gaza",
+      details: [
+        "In the midst of displacement and the loss of stability, many families in Gaza live between damaged homes and temporary shelters, trying to preserve a minimum level of daily safety. The food aid was not merely a package delivered to a household; it was a message of reassurance that someone remembers them and is trying to reach them despite the harsh reality.",
+        "The project relied on home visits and needs assessment before distribution to ensure that support reached families facing severe conditions. For this family, the food package represented urgent support that reduced the daily burden of searching for food and offered a brief moment of relief amid long days of uncertainty.",
+        "This story reflects how humanitarian support can become temporary safety and preserved dignity."
+      ]
     }
   },
   mother: {
@@ -491,6 +714,17 @@ const storyData = {
         "在流離失所、基本生活需求越來越難以取得的處境中，加薩的母親承擔著加倍的壓力：保護家人、安排食物，也在家中或帳篷裡維持心理上的穩定。這個故事代表一位母親，即使資源稀少、物價波動、取得必需品困難，仍每天努力撐起家庭。",
         "食物包的抵達無法完全解決所有苦難，卻在關鍵時刻成為真實支撐。食物包中的基本物資能協助家庭準備簡單餐食，也減輕母親在不穩定生活中每天承受的壓力。",
         "這個故事提醒我們，當人道援助以尊嚴抵達，家庭會感受到自己並不孤單。"
+      ]
+    },
+    en: {
+      title: "A Mother Shaping Resilience",
+      kicker: "Strength in Difficult Conditions",
+      summary: "A mother carrying the responsibility of her family in harsh conditions found temporary support in the food package, easing the burden of difficult days.",
+      imageAlt: "Photo documenting a mother's resilience in Gaza",
+      details: [
+        "Under displacement, rising hardship, and the difficulty of securing basic needs, mothers in Gaza carry multiplied responsibilities: protecting their families, providing food, and preserving emotional stability within a home or shelter. This story represents a mother who tries to create resilience every day despite limited resources and unstable conditions.",
+        "The arrival of the food package was not a complete solution to all hardship, but it was meaningful support at a critical moment. It included essential items that help the family prepare simple meals and reduce the daily pressure on a mother carrying a heavy responsibility.",
+        "This story reminds us that when humanitarian aid arrives with dignity, it helps families feel they are not alone."
       ]
     }
   },
@@ -517,6 +751,17 @@ const storyData = {
         "他們的角色超越了行政與組織工作；他們最接近人們的故事，聽見細節、看見現實的困難，也協助把支持轉化為具體的人道行動。透過他們的努力，名單與數字成為家庭真正收到援助的瞬間，發放也因此更公平、更有秩序。",
         "志工是連結善意與地面需求的橋梁。"
       ]
+    },
+    en: {
+      title: "Volunteers Carrying Compassion",
+      kicker: "Heroes from the Field",
+      summary: "The volunteers' role was not limited to filling forms; they witnessed hardship and became a bridge for aid to arrive with dignity.",
+      imageAlt: "Photo documenting part of the work of local volunteers",
+      details: [
+        "The field team consisted of local volunteers distributed across Gaza City, Al-Nuseirat, and Deir al-Balah, in addition to a logistics team responsible for transportation and preparation. Volunteers carried out home visits, collected data, documented needs, and followed up on the delivery of packages to beneficiary families.",
+        "Their role went beyond organization; they were closest to people's stories, listening to details, witnessing the difficult reality, and helping transform support into a tangible humanitarian action. Through their efforts, lists and numbers became real access for families, and the distribution was carried out in a more fair and organized manner.",
+        "The volunteers were the bridge between the intention to give and the needs of families on the ground."
+      ]
     }
   }
 };
@@ -532,6 +777,10 @@ const regionData = {
     zh: {
       title: "加薩市",
       description: "本次發放範圍中的主要地區"
+    },
+    en: {
+      title: "Gaza City",
+      description: "A primary area within the distribution scope"
     }
   },
   nuseirat: {
@@ -544,6 +793,10 @@ const regionData = {
     zh: {
       title: "努塞拉特",
       description: "依實地記錄需求納入的目標地區"
+    },
+    en: {
+      title: "Al-Nuseirat",
+      description: "A targeted area based on field-documented needs"
     }
   },
   deir: {
@@ -556,33 +809,81 @@ const regionData = {
     zh: {
       title: "代爾拜萊赫",
       description: "本次發放中受益家庭數最多的地區"
+    },
+    en: {
+      title: "Deir al-Balah",
+      description: "The area with the largest number of beneficiary families in this distribution"
     }
   }
 };
 
 function getTranslation(key, lang = currentLanguage) {
-  return translations[lang]?.[key] ?? translations.ar[key] ?? "";
+  const language = normalizeLanguage(lang);
+  return translations[language]?.[key] ?? translations.ar[key] ?? "";
+}
+
+function normalizeLanguage(lang) {
+  return lang === "zh" || lang === "en" || lang === "ar" ? lang : "ar";
 }
 
 function getStoredLanguage() {
   try {
     const storedLanguage = localStorage.getItem(LANGUAGE_STORAGE_KEY);
-    return storedLanguage === "zh" || storedLanguage === "ar" ? storedLanguage : null;
+    return storedLanguage === "zh" || storedLanguage === "en" || storedLanguage === "ar" ? storedLanguage : null;
   } catch (error) {
     return null;
   }
 }
 
 function updateLanguageUI(lang) {
+  const language = normalizeLanguage(lang);
+  const info = languageLabels[language];
+
   languageOptions.forEach((option) => {
-    const isActive = option.dataset.lang === lang;
+    const isActive = option.dataset.lang === language;
     option.classList.toggle("is-active", isActive);
-    option.setAttribute("aria-pressed", String(isActive));
+    option.setAttribute("aria-selected", String(isActive));
   });
+
+  if (languageCurrentCode) {
+    languageCurrentCode.textContent = info.code;
+  }
+
+  if (languageCurrentLabel) {
+    languageCurrentLabel.textContent = info.label;
+  }
+}
+
+function closeLanguageDropdown() {
+  if (!languageDropdownToggle || !languageDropdownMenu) {
+    return;
+  }
+
+  languageDropdownToggle.setAttribute("aria-expanded", "false");
+  languageDropdownMenu.hidden = true;
+}
+
+function openLanguageDropdown() {
+  if (!languageDropdownToggle || !languageDropdownMenu) {
+    return;
+  }
+
+  languageDropdownToggle.setAttribute("aria-expanded", "true");
+  languageDropdownMenu.hidden = false;
+}
+
+function toggleLanguageDropdown() {
+  const isOpen = languageDropdownToggle?.getAttribute("aria-expanded") === "true";
+
+  if (isOpen) {
+    closeLanguageDropdown();
+  } else {
+    openLanguageDropdown();
+  }
 }
 
 function translatePage(lang) {
-  const language = lang === "zh" ? "zh" : "ar";
+  const language = normalizeLanguage(lang);
 
   document.querySelectorAll("[data-i18n]").forEach((element) => {
     const value = getTranslation(element.dataset.i18n, language);
@@ -618,11 +919,11 @@ function translatePage(lang) {
 }
 
 function applyLanguage(lang, shouldSave = false) {
-  const nextLanguage = lang === "zh" ? "zh" : "ar";
+  const nextLanguage = normalizeLanguage(lang);
   currentLanguage = nextLanguage;
 
-  document.documentElement.lang = nextLanguage === "zh" ? "zh-Hant" : "ar";
-  document.documentElement.dir = nextLanguage === "zh" ? "ltr" : "rtl";
+  document.documentElement.lang = nextLanguage === "zh" ? "zh-Hant" : nextLanguage;
+  document.documentElement.dir = nextLanguage === "ar" ? "rtl" : "ltr";
 
   translatePage(nextLanguage);
   updateLanguageUI(nextLanguage);
@@ -783,7 +1084,17 @@ initializeTheme();
 languageOptions.forEach((option) => {
   option.addEventListener("click", () => {
     applyLanguage(option.dataset.lang, true);
+    closeLanguageDropdown();
+    languageDropdownToggle?.focus();
   });
+});
+
+languageDropdownToggle?.addEventListener("click", toggleLanguageDropdown);
+
+document.addEventListener("click", (event) => {
+  if (!languageDropdown?.contains(event.target)) {
+    closeLanguageDropdown();
+  }
 });
 
 themeToggle?.addEventListener("click", () => {
@@ -1036,6 +1347,7 @@ storyModalCloseTriggers.forEach((trigger) => {
 
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") {
+    closeLanguageDropdown();
     closeMenu();
     closeStoryModal();
     if (!lightbox?.hidden) {

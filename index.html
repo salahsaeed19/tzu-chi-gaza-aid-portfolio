@@ -19,9 +19,9 @@
 
       try {
         var savedLanguage = localStorage.getItem("tsuchi-language");
-        var language = savedLanguage === "zh" ? "zh" : "ar";
-        document.documentElement.lang = language === "zh" ? "zh-Hant" : "ar";
-        document.documentElement.dir = language === "zh" ? "ltr" : "rtl";
+        var language = savedLanguage === "zh" || savedLanguage === "en" ? savedLanguage : "ar";
+        document.documentElement.lang = language === "zh" ? "zh-Hant" : language;
+        document.documentElement.dir = language === "ar" ? "rtl" : "ltr";
       } catch (error) {
         document.documentElement.lang = "ar";
         document.documentElement.dir = "rtl";
@@ -56,14 +56,45 @@
       </ul>
 
       <div class="nav-actions">
-        <div class="language-switcher" aria-label="اختيار اللغة" data-i18n-aria-label="language.aria">
-          <button class="language-option is-active" type="button" data-lang="ar" aria-pressed="true">العربية</button>
-          <button class="language-option" type="button" data-lang="zh" aria-pressed="false">中文</button>
+        <div class="language-dropdown" data-language-dropdown>
+          <button
+            class="language-dropdown-toggle"
+            type="button"
+            aria-haspopup="listbox"
+            aria-expanded="false"
+            aria-label="اختيار اللغة"
+            data-i18n-aria-label="language.aria"
+          >
+            <span class="language-current-code" data-language-current-code>AR</span>
+            <span class="language-current-label" data-language-current-label>العربية</span>
+            <span class="language-dropdown-arrow" aria-hidden="true">▾</span>
+          </button>
+
+          <ul class="language-dropdown-menu" role="listbox" hidden>
+            <li>
+              <button class="language-dropdown-option is-active" type="button" role="option" data-lang="ar" aria-selected="true">
+                <span class="language-option-code">AR</span>
+                <span>العربية</span>
+              </button>
+            </li>
+            <li>
+              <button class="language-dropdown-option" type="button" role="option" data-lang="zh" aria-selected="false">
+                <span class="language-option-code">ZH</span>
+                <span>中文</span>
+              </button>
+            </li>
+            <li>
+              <button class="language-dropdown-option" type="button" role="option" data-lang="en" aria-selected="false">
+                <span class="language-option-code">EN</span>
+                <span>English</span>
+              </button>
+            </li>
+          </ul>
         </div>
 
         <button class="theme-toggle" type="button" aria-label="الوضع الداكن" aria-pressed="false">
           <span class="theme-toggle-icon" aria-hidden="true">🌙</span>
-          <span class="theme-toggle-text" data-i18n="theme.dark">الوضع الداكن</span>
+          <span class="sr-only theme-toggle-text" data-i18n="theme.dark">الوضع الداكن</span>
         </button>
 
         <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label="فتح القائمة" data-i18n-aria-label="menu.open">
